@@ -1,0 +1,46 @@
+#version: "3"
+#services:
+#  api-database:
+#    image: mongo:latest
+#    container_name: "api-database"
+#    ports:
+#      - 27017:27017
+#  api:
+#    image: api-docker-image
+#    ports:
+#      - 9091:8080
+#    links:
+#      - api-database
+
+
+#version: "3.7"
+#services:
+#  api_service:
+#    build: .
+#    restart: always
+#    ports:
+#      - 8080:8080
+#    links:
+#      - mongo_db:app_db
+#  mongo_db:
+#    image: "mongo:4.4.3"
+#    restart: always
+#    ports:
+#      - 27017:27017
+
+
+version: "3.7"
+services:
+  api-service:
+    image: spring-boot-mongodb-docker-compose
+    build: .
+    restart: always
+    ports:
+      - 9091:8080
+    depends_on:
+      - api-database
+  api-database:
+    image: "mongo:latest"
+    restart: always
+    ports:
+      - 27017:27017
