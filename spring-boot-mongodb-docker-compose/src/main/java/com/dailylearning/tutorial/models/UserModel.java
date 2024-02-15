@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 @Data
 @Builder
-public class LoginModel {
+public class UserModel {
     @Id
     private String email;
     private String password;
