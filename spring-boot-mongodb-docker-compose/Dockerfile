@@ -7,5 +7,5 @@
 
 FROM adoptopenjdk/openjdk11:latest
 VOLUME /tmp
-ADD target/spring-boot-mongodb-docker-compose.jar app.jar
+ADD target/spring-boot-mongodb-docker-compose-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
